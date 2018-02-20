@@ -1,12 +1,19 @@
 package main
 
 import (
+	"fmt"
+
     "net/http"
     "go.uber.org/zap"
     "github.com/beego/mux"
+    
+	"github.com/interma/go-skeleton/pkg/version"
 )
 
 func main() {
+	ver := version.Version
+	fmt.Println(ver)
+
     logger, _ := zap.NewProduction()
     defer logger.Sync()
     sugar := logger.Sugar()
