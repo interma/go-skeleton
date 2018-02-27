@@ -16,6 +16,11 @@ ln -s ~/go/src/github.com/interma/go-skeleton
 $ make depend
 ...
 
+$ make lint
+gometalinter -s vendor ./...
+main.go:18:1:warning: run_webserver is unused (deadcode)
+...
+
 $ make unit
 gofmt -w -s main.go pkg
 goimports -w main.go pkg

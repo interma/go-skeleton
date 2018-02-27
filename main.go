@@ -15,7 +15,7 @@ import (
 )
 
 // run a basic http server
-func run_webserver() {
+func runWebserver() {
 	logger, _ := zap.NewProduction()
 	defer logger.Sync()
 	sugar := logger.Sugar()

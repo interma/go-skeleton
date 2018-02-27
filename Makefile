@@ -24,7 +24,8 @@ format:
 	goimports -w main.go pkg
 
 lint:
-	gometalinter --config=gometalinter.config -s vendor ./...
+	#gometalinter --config=gometalinter.config -s vendor ./...
+	gometalinter -s vendor ./...
 
 unit: format
 	ginkgo -r -cover -coverprofile=coverage.out pkg/add
@@ -45,4 +46,4 @@ build_linux: format
 	env GOOS=linux GOARCH=amd64 go build -tags '$(BINARY)' $(GOFLAGS) -o $(BINARY)_linux -ldflags $(VERSION_STR)
 
 clean:
-	rm -f $(BINARY)_mac $(BINARY)_linux $(BIN_DIR)/$(BINARY) pkg/add/coverage.out
+	rm -f $(BINARY)_mac $(BINARY)_linux $(BIN_DIR)/$(BINARY) ./coverage.out
