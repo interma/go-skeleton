@@ -7,6 +7,7 @@ import (
 
 	// vendor package
 	"github.com/beego/mux"
+	"github.com/sirupsen/logrus"
 	"go.uber.org/zap"
 
 	// my own package
@@ -27,7 +28,8 @@ func runWebserver() {
 
 func main() {
 	ver := version.Version
-	fmt.Println(ver)
+	//fmt.Println(ver)
+	logrus.Infof("Version: %v", ver)
 
 	sum := add.Add(1, 2)
 	fmt.Println(sum)
