@@ -30,6 +30,9 @@ func main() {
 	ver := version.Version
 	//fmt.Println(ver)
 	logrus.Infof("Version: %v", ver)
+	logrus.WithFields(logrus.Fields{
+		"Version": ver,
+	}).Info("A log example")
 
 	sum := add.Add(1, 2)
 	fmt.Println(sum)
